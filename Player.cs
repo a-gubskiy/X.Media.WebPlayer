@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web;
-using Core.Player;
 
 namespace X.Media.WebPlayer
 {
@@ -42,6 +41,9 @@ namespace X.Media.WebPlayer
         public int Height { get; set; }
         public int Width { get; set; }
 
-        public abstract void Initilize(string url);
+        public virtual void Initilize(string url)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

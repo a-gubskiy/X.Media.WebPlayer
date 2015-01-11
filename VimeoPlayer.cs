@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
 
-namespace Core.Player
+namespace X.Media.WebPlayer
 {
     public class VimeoPlayer : X.Media.WebPlayer.Player
     {
@@ -15,12 +11,6 @@ namespace Core.Player
         public VimeoPlayer(string url)
             : base(url)
         {
-
-        }
-
-        public override void Initilize(string url)
-        {
-            throw new NotImplementedException();
         }
 
         public override HtmlString Render()

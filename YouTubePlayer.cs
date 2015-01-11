@@ -2,21 +2,15 @@
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Core.Player
+namespace X.Media.WebPlayer
 {
-    public class YouTubePlayer : X.Media.WebPlayer.Player
+    public class YouTubePlayer : Player
     {
         private string url;
 
         public YouTubePlayer(string url)
             : base(url)
         {
-
-        }
-
-        public override void Initilize(string url)
-        {
-            _url = url;
         }
 
         public override HtmlString Render()
