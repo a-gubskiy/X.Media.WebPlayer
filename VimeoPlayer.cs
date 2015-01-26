@@ -15,16 +15,15 @@ namespace X.Media.WebPlayer
 
         public override HtmlString Render()
         {
-            //var regex = new Regex("/https?:\\/\\/(?:www\\.)?vimeo.com\\/(?:channels\\/(?:\\w+\\/)?|groups\\/([^\\/]*)\\/videos\\/|album\\/(\\d+)\\/video\\/|)(\\d+)(?:$|\\/|\\?)/");
+            //Vimeo: vimeo\.com/(?:.*#|.*/videos/)?([0-9]+)
             var regex = new Regex("vimeo\\.com/(?:.*#|.*/(videos|.*)/)?([0-9]+)");
-            
+
             var match = regex.Match(_url);
 
             string id;
 
             if (match.Success)
             {
-                //id = match.Groups[1].Value;
                 id = match.Groups[match.Groups.Count - 1].Value;
             }
             else
@@ -34,10 +33,12 @@ namespace X.Media.WebPlayer
 
             var embedUrl = String.Format("//player.vimeo.com/video/{0}", id);
 
+            var width = Width == 0 ? "100%" : Width + "px";
+
             var str =
                 String.Format(
                     "<iframe src=\"{0}?byline=0&amp;portrait=0\" width=\"{1}\" height=\"{2}\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-                    embedUrl, Width, Height);
+                    embedUrl, width, Height);
 
 
             return new HtmlString(str);
