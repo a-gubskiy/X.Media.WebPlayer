@@ -5,7 +5,7 @@ namespace X.Media.WebPlayer
 {
     public abstract class Player : IPlayer
     {
-        protected string _url;
+        protected readonly string _url;
 
         public Player()
         {
